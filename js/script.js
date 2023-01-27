@@ -9,3 +9,7 @@ const letterEntry = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
 const word = "magnolia";
 
+const placeholder = function (wordInProgress) {
+    wordInProgress.innerText = placeholder("●");
+};
+console.log(placeholder);
