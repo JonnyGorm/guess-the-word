@@ -9,6 +9,7 @@ const letterEntry = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
 const word = "magnolia";
 
+
 const placeholder = function () {
     const dotArray = []
     const wordArray = word.split("");
@@ -20,9 +21,29 @@ const placeholder = function () {
 };
 placeholder(); 
 
+//Guess button//
 guessButton.addEventListener("click", function (e){
     e.preventDefault();
+    message.innerText = "";
     const guess = guessInput.value;
     console.log(guess);
     guessInput.value = "";
+    
 });
+
+
+const validateInput = function (input){
+    const acceptedLetter = /[a-zA-Z]/;
+    if (input.length === 0) {
+        message.innerText = "Enter a letter.";
+    }
+    else if (input.length > 1) {
+        message.innerText = "Please enter one letter, thanks.";
+    }
+    else if (!input.match(acceptedLetter)) {
+        message.innerText = "Only enter a letter from A-Z, please.";
+    }
+    else {
+        return input;
+    }
+};
