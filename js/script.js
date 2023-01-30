@@ -26,7 +26,8 @@ guessButton.addEventListener("click", function (e){
     e.preventDefault();
     message.innerText = "";
     const guess = guessInput.value;
-    console.log(guess);
+    //console.log(guess);
+    validateInput(guess);
     guessInput.value = "";
     
 });
