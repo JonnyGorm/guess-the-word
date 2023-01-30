@@ -9,7 +9,20 @@ const letterEntry = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
 const word = "magnolia";
 
-const placeholder = function (wordInProgress) {
-    wordInProgress.innerText = placeholder("●");
+const placeholder = function () {
+    const dotArray = []
+    const wordArray = word.split("");
+
+    for (let letter of wordArray){
+        dotArray.push("●");
+    }
+    wordInProgress.innerText = dotArray.join("");
 };
-console.log(placeholder);
+placeholder(); 
+
+guessButton.addEventListener("click", function (e){
+    e.preventDefault();
+    const guess = guessInput.value;
+    console.log(guess);
+    guessInput.value = "";
+});
