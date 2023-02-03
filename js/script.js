@@ -62,5 +62,43 @@ const makeGuess = function (guess) {
     else {
         guessedLetters.push(guess);
         console.log(guessedLetters);
+        showLetters();
+        wip(guessedLetters);
     }
 };
+
+
+const showLetters = function () {
+    //Q&A question, When do I use innerHTML instead of innerText?
+    guessedLettersElement.innerHTML = "";
+    for (const letter of guessedLetters) {
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLettersElement.append(li);
+    }
+};
+
+const wip = function (guessedLetters) {
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    //console.log(wordArray);
+    const revealWord = [];
+    for (const letter of wordArray) {
+        if (guessedLetters.includes(letter)) {
+            revealWord.push(letter.toUpperCase());
+        }
+        else{
+            revealWord.push("●");
+        }
+    }
+    wordInProgress.innerText = revealWord.join("");
+    youWin();
+};
+
+const youWin = function () {
+    if (word.toUpperCase() === wordInProgress.innerText) {
+        letterEntry.classList.add("win");
+        letterEntry.innerHTML = `<p class="highlight">You guessed the correct word! GO YOU!</p>`;
+    }
+};
+
