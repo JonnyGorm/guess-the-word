@@ -67,7 +67,8 @@ const validateInput = function (input){
         return input;
     }
 };
-// Q&A question, How do i know that Guess is the correct parameter to pass through this function?
+
+
 const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)){
@@ -84,7 +85,6 @@ const makeGuess = function (guess) {
 
 
 const showLetters = function () {
-    //Q&A question, When do I use innerHTML instead of innerText?
     guessedLettersElement.innerHTML = "";
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
@@ -144,6 +144,7 @@ const startOver = function () {
     playAgain.classList.remove("hide");
 };
 
+//Play again button
 playAgain.addEventListener("click", function() {
     message.classList.remove("win");
     guessedLetters = [];
