@@ -17,7 +17,6 @@ const getWord = async function () {
     const request = await fetch ("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const data = await request.text();
     const wordArray = data.split("\n");
-    //console.log(wordArray);
     const randomWord = Math.floor(Math.random() * wordArray.length);
     word = wordArray[randomWord].trim();
     placeholder(word);
@@ -41,7 +40,6 @@ guessButton.addEventListener("click", function (e){
     e.preventDefault();
     message.innerText = "";
     const guess = guessInput.value;
-    //console.log(guess);
     guessInput.value = "";
     const goodGuess = validateInput(guess);
 
@@ -67,7 +65,7 @@ const validateInput = function (input){
         return input;
     }
 };
-// Q&A question, How do i know that Guess is the correct parameter to pass through this function?
+
 const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)){
@@ -84,7 +82,6 @@ const makeGuess = function (guess) {
 
 
 const showLetters = function () {
-    //Q&A question, When do I use innerHTML instead of innerText?
     guessedLettersElement.innerHTML = "";
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
@@ -96,7 +93,6 @@ const showLetters = function () {
 const wip = function (guessedLetters) {
     const wordUpper = word.toUpperCase();
     const wordArray = wordUpper.split("");
-    //console.log(wordArray);
     const revealWord = [];
     for (const letter of wordArray) {
         if (guessedLetters.includes(letter)) {
